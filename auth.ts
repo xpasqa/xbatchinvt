@@ -81,8 +81,8 @@ export const authOptions: NextAuthOptions = {
     },
     async session({ session, token }) {
       if (session.user) {
-        session.user.id = token.id as string;
-        session.user.role = token.role as import("@prisma/client").UserRole;
+        session.user.id = token.id;
+        session.user.role = token.role;
       }
       return session;
     },
